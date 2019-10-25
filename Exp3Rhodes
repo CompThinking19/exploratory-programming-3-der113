@@ -1,0 +1,12 @@
+import re
+source = open('84-0.txt')
+frankenstein = source.read()
+def findcharacter(book):
+    if type(book) != str:
+        raise TypeError("Not a string")
+    result = re.findall(r'at\b', book)
+for morethanthree in result:
+    if len(morethanthree) > 3:
+        print result
+        return morethanthree
+        
