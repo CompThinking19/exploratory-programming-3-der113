@@ -1,12 +1,19 @@
 import re
+#open and read text file
 source = open('84-0.txt')
 frankenstein = source.read()
+#define function and check if it's a string
 def findcharacter(book):
     if type(book) != str:
         raise TypeError("Not a string")
-    result = re.findall(r'at\b', book)
-for morethanthree in result:
-    if len(morethanthree) > 3:
-        print result
-        return morethanthree
-        
+        #find all words ending in at
+    result = re.findall(r'\w*at\b', book)
+    #create a list
+    words = []
+    # for loop to iterate through list and find ending in at with more than three characters, then add it to the words list
+    for morethanthree in result:
+        if len(morethanthree) > 3:
+            words.append(morethanthree)
+    return words
+#call function and text
+findcharacter(frankenstein)
